@@ -1,60 +1,85 @@
-import Image from "next/image";
+"use client";
 import Link from "next/link";
-import { recipesData } from "@/data/recipes";
-export default async function Home() {
-  const { recipes } = await fetch("https://dummyjson.com/recipes")
-    .then((res) => res.json())
-    .then((data) => data);
-  // console.log("recipes", recipes);
-  // const { recipes } = recipesData;
-  if (!recipes)
-    return (
-      <div className="flex justify-center items-center text-3xl text-center h-screen">
-        Loading...
-      </div>
-    );
-  return (
-    <main className="bg-white min-h-screen p-6 text-black">
-      <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
-        {recipes.map((recipe) => (
-          <Link
-            href={`/${recipe.id}`}
-            key={recipe.id}
-            className="w-70 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between p-4 "
-          >
-            <div className="h-40 w-full overflow-hidden rounded-lg mb-3">
-              <img
-                src={recipe.image}
-                alt={recipe.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <div className="flex justify-between items-start gap-2">
-                <h2
-                  className="font-bold text-base text-gray-800 truncate"
-                  title={recipe.name}
-                >
-                  {recipe.name}
-                </h2>
-                <div className="flex items-center gap-1 text-sm font-semibold text-yellow-500">
-                  ★ <span>{recipe.rating}</span>
-                </div>
-              </div>
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import register from "./register/page";
+export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const router = useRouter();
 
-              <div className="flex justify-between items-center text-xs text-gray-600 mt-2">
-                <div className="text-[#DC582A] font-medium">
-                  {recipe.prepTimeMinutes + recipe.cookTimeMinutes} min
-                </div>
-                <div className="flex items-center gap-2 text-gray-400">
-                  <i class="fa-light fa-heart"></i>
-                  <i class="fa-solid fa-comment"></i>
-                </div>
-              </div>
-            </div>
-          </Link>
-        ))}
+  const login = () => {
+    setErrorMessage("");
+    let userData = [];
+    if (!localStorage.data) {
+      userData = JSON.parse(localStorage.Ruser);
+      return;
+    } else {
+      userData = JSON.parse(localStorage.data);
+    }
+    if (!email || !password) {
+      setErrorMessage("All fields are required!");
+      return;
+    }
+    const user = userData.find(
+      (user) => user.email === email && user.password === password,
+    );
+    if (!user) {
+      setErrorMessage("Invalid email or password!");
+      return;
+    }
+    const userDataJSON = JSON.stringify(user);
+    localStorage.user = userDataJSON;
+    router.push("./recipes");
+  };
+  return (
+    <div className="h-screen  text-black flex justify-center items-center bg-blue-400 ">
+      <div className="flex flex-col bg-white w-90 rounded-lg p-4">
+        <div className="flex justify-between">
+          <label htmlFor="Email">Email</label>
+          <input
+            className="bg-gray-100  rounded-md  "
+            id="Email"
+            type="email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </div>
+        <div className="flex justify-between m-2 mx-0">
+          <label htmlFor="password">password</label>
+          <input
+            className="bg-gray-100 rounded-md "
+            id="password"
+            type="password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
+        <div>
+          <div className="flex justify-center items-center m-2">
+            <button
+              className="flex justify-center items-center text-white bg-blue-400 rounded-md w-25 h-7"
+              onClick={login}
+            >
+              login
+            </button>
+          </div>
+          <div className="flex gap-2">
+            <div>I don't have an acount..</div>
+            <button className="text-blue-400">
+              <Link href={`./register`}>Sign up</Link>
+            </button>
+          </div>
+        </div>
+        {errorMessage && (
+          <div className="flex bg-red-500 text-white rounded-lg mt-1 py-2 px-3">
+            <div>{errorMessage}</div>
+          </div>
+        )}
       </div>
-    </main>
+    </div>
   );
 }
