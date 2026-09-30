@@ -41,8 +41,14 @@ export default function register() {
       Gender,
       Phone,
     };
-    const userDataJSON = JSON.stringify(registerData);
-    localStorage.Ruser = userDataJSON;
+
+    const usersJSON = localStorage.users;
+
+    const users = usersJSON ? JSON.parse(usersJSON) : [];
+
+    users.push(registerData);
+    localStorage.users = JSON.stringify(users);
+
     router.push("/");
   };
   return (

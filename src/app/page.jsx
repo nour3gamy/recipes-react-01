@@ -11,28 +11,32 @@ export default function Login() {
 
   const login = () => {
     setErrorMessage("");
-    let userData = [];
-    if (!localStorage.data) {
-      userData = JSON.parse(localStorage.Ruser);
-      return;
-    } else {
-      userData = JSON.parse(localStorage.data);
-    }
+
     if (!email || !password) {
       setErrorMessage("All fields are required!");
       return;
     }
-    const user = userData.find(
+
+    let usersData = [];
+
+    if (localStorage.users) {
+      usersData = JSON.parse(localStorage.users);
+    }
+
+    const user = usersData.find(
       (user) => user.email === email && user.password === password,
     );
+
     if (!user) {
       setErrorMessage("Invalid email or password!");
       return;
     }
+
     const userDataJSON = JSON.stringify(user);
     localStorage.user = userDataJSON;
     router.push("./recipes");
   };
+
   return (
     <div className="h-screen  text-black flex justify-center items-center bg-blue-400 ">
       <div className="flex flex-col bg-white w-90 rounded-lg p-4">
