@@ -1,10 +1,8 @@
-import TopNavpar from "@/app/components/TopNavpar";
-import Route from "../components/Route";
+import TopNavbar from "@/components/TopNavbar";
 export default function recipesLayout({ children }) {
   return (
     <div>
-      <Route />
-      <TopNavpar />
+      <TopNavbar />
       {children}
     </div>
   );

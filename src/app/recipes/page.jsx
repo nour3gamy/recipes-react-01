@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Icons from "../components/Icons";
+import Icons from "../../components/Icons";
 // import { recipesData } from "@/data/recipes";
 export default async function recipes() {
   const { recipes } = await fetch("https://dummyjson.com/recipes")

@@ -1,4 +1,4 @@
-import Icons from "@/app/components/Icons";
+import Icons from "@/components/Icons";
 
 export default async function recipePage({ params }) {
   const { id } = await params;

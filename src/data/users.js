@@ -62,6 +62,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "admin",
+    loggedin: false,
   },
   {
     id: 2,
@@ -124,6 +125,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "admin",
+    loggedin: false,
   },
   {
     id: 3,
@@ -186,6 +188,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "admin",
+    loggedin: false,
   },
   {
     id: 4,
@@ -248,6 +251,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "admin",
+    loggedin: false,
   },
   {
     id: 5,
@@ -310,6 +314,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "admin",
+    loggedin: false,
   },
   {
     id: 6,
@@ -372,6 +377,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "moderator",
+    loggedin: false,
   },
   {
     id: 7,
@@ -434,6 +440,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "moderator",
+    loggedin: false,
   },
   {
     id: 8,
@@ -496,6 +503,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "moderator",
+    loggedin: false,
   },
   {
     id: 9,
@@ -558,6 +566,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "moderator",
+    loggedin: false,
   },
   {
     id: 10,
@@ -620,6 +629,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "moderator",
+    loggedin: false,
   },
   {
     id: 11,
@@ -682,6 +692,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "moderator",
+    loggedin: false,
   },
   {
     id: 12,
@@ -744,6 +755,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "moderator",
+    loggedin: false,
   },
   {
     id: 13,
@@ -806,6 +818,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "moderator",
+    loggedin: false,
   },
   {
     id: 14,
@@ -868,6 +881,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "moderator",
+    loggedin: false,
   },
   {
     id: 15,
@@ -930,6 +944,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "moderator",
+    loggedin: false,
   },
   {
     id: 16,
@@ -992,6 +1007,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "user",
+    loggedin: false,
   },
   {
     id: 17,
@@ -1054,6 +1070,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "user",
+    loggedin: false,
   },
   {
     id: 18,
@@ -1116,6 +1133,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "user",
+    loggedin: false,
   },
   {
     id: 19,
@@ -1178,6 +1196,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "user",
+    loggedin: false,
   },
   {
     id: 20,
@@ -1240,6 +1259,7 @@ export const users = [
       network: "Ethereum (ERC20)",
     },
     role: "user",
+    loggedin: false,
   },
 ];
 // const usersJson = JSON.stringify(users);
